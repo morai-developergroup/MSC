@@ -2,8 +2,8 @@ receive_user_ip : 127.0.0.1
 receive_user_port : 10329
 request_dst_ip : 127.0.0.1
 request_dst_port : 10509
-user_id : launcher2
-user_pw : 1234
+user_id : 
+user_pw : 
 version : v.4.7.211109.H3
 map : R_KR_PG_K-City
 vehicle : 2017_Kia_Niro(HEV)
