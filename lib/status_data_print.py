@@ -13,7 +13,8 @@ platform, stage, status, command 등
 class status_parser:
     def __init__(self):
         self.status_dict = {            
-            '0x01' : { #LAUNCHER
+            #LAUNCHER
+            '0x01' : {
                 'platform' : 'Launcher',                
                 '0x01' : { #BEFORE LOGIN
                     'stage'  : '로그인 전 상태',      
@@ -30,7 +31,8 @@ class status_parser:
                     '0x0005' : { 'status' : '시뮬레이터 다운로드 중' },
                     '0x0006' : { 'status' : '로그인 완료 상태' },
                     '0x0007' : { 'status' : '시뮬레이터 종료 후 런쳐 대기상태' }
-                },                
+                },
+                #LAUNCHER COMMAND                
                 '0x0000' : { 'command' : '명령없음' },
                 '0x0001' : { 'command' : '로그인 명령' },
                 '0x0002' : { 'command' : '시뮬레이터 선택 명령' },
@@ -39,23 +41,26 @@ class status_parser:
                 '0x1000' : { 'command' : '런처 종료 명령' },
                 '0x1001' : { 'command' : '런처 로그아웃' }
             },                          
-
+            #Simulator
             '0x02' : {
                 'platform' : 'Simulator',
-                '0x01' : {
+                '0x01' : {#LOBBY
                     'stage'  : '로비 진입 상태',
+                    #SIMULATOR LOBBY STATUS
                     '0x0001' : { 'status' : '대기상태' },
                     '0x0002' : { 'status' : '맵/차량 선택 안됨' },
                     '0x0003' : { 'status' : '로딩중' }
                 },
-                '0x02' : {
+                '0x02' : {#PLAY
                     'stage'  : '플레이 상태',
+                    #SIMULATOR PLAY STATUS
                     '0x0001' : { 'status' : '대기 상태(플레이 상태)' },
                     '0x0002' : { 'status' : '시뮬레이션 정지 상태' },
                     '0x0003' : { 'status' : '로딩중' },
                     '0x0004' : { 'status' : '종료 명령으로 인한 시뮬레이션 종료 중' },
                     '0x0005' : { 'status' : '맵 변경이 완료' }
-                },                
+                },           
+                #SIMULATOR COMMAND
                 '0x0000' : { 'command' : '명령없음' },
                 '0x0001' : { 'command' : '시뮬레이션/옵션 변경 실행 명령' },
                 '0x0002' : { 'command' : '시뮬레이션 Pause' },
@@ -68,7 +73,7 @@ class status_parser:
                 '0x0016' : { 'command' : '네트워크 데이터 저장 명령' },
                 '0x1000' : { 'command' : '시뮬레이터 종료 명령' }
             },  
-            
+            #Option result
             'result' : {
                 '0x00' : '명령 없음',
                 '0x01' : '성공',
