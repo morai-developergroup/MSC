@@ -93,13 +93,12 @@ class status_parser:
             }
         }        
 
-
-
+    
     def print_info(self,status_data):        
-        try:
+        try:            
             platform, stage, status, cmd_platform, cmd, cmd_option, result = status_data
             is_wait = '0x1000'
-            
+            print(platform, stage, status, cmd_platform, cmd, cmd_option, result)
             print_platform = self.status_dict[platform]['platform']
             print_stage = self.status_dict[platform][stage]['stage']         
             if int(is_wait, 16) < int(status, 16):

@@ -40,7 +40,7 @@ class udp_parser :
                 command_option = raw_data[42:142].decode()
                 command_result = format(struct.unpack('B', raw_data[142:143])[0], '#04x')
 
-                self.parsed_data = data_platform, data_stage, data_status, command_platform, command_cmd, command_option,command_result
+                self.parsed_data = data_platform, data_stage, data_status, command_platform, command_cmd, command_option, command_result
 
     def get_data(self) :
         return self.parsed_data

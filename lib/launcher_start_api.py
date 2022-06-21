@@ -15,17 +15,19 @@ class launcher_start(controller):
 
         while True:
             if self.controller.update(): #data update
-                self.controller.is_waitting() #check watting status
+                
                 self.controller.is_downloading() #check downloading status
 
                 if self.controller.is_befor_login():
                     self.controller.commander(Command.LOGIN, f'{user_id}/{user_pw}')#Login명령
                         
                 if self.controller.is_after_login() or self.controller.is_after_sim_quit_to_launcher():  # is_after_sim_quit_to_launcher : Simulator에서 quit 명령 후 Launcher 복귀 상태 확인
-                    self.controller.commander(Command.SELECT_VER, version)#version 선택명령
-
-                    if self.controller.is_not_find_version(): #선택한 버전이 없는 버전인지 확인.                    
-                        break
+                                        
+                    if not self.controller.is_version_selected():
+                        self.controller.commander(Command.SELECT_VER, version)#version 선택명령
+                        
+                        if self.controller.is_not_find_version(): #선택한 버전이 없는 버전인지 확인.                    
+                            break
                     
                     if self.controller.is_can_execute_sim():
                         self.controller.commander(Command.EXECUTE_SIM,'') #Simulator 실행 명령

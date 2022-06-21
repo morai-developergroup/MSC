@@ -10,7 +10,6 @@ https://docs.google.com/spreadsheets/d/1jHbR_JoZFYfxMirwSp-48peWkJf1xUmMZyFIwetx
 
 """
 
-
 class api :
 
     def __init__(self):         
